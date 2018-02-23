@@ -1,4 +1,5 @@
 # nginx
+[![Build Status](https://travis-ci.org/jgtree420/nginx.svg?branch=master)](https://travis-ci.org/jgtree420/nginx)
 
 This cookbook installs and configures a simple web
 site using the Nginx web server.
