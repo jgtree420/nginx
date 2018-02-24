@@ -21,6 +21,7 @@ package 'epel-release'
 package 'nginx'
 
 service 'nginx' do
+  supports status: true, restart:true, reload:true
   action [:enable, :start]
 end
 
@@ -37,7 +38,7 @@ end
 
 template '/etc/nginx/nginx.conf' do
   source 'nginx.conf.erb'
-  notifies :restart, 'service[nginx]', :immediately
+  notifies :reload, 'service[nginx]', :immediately
 end
 
 directory '/etc/nginx/conf.d' do
@@ -49,5 +50,5 @@ end
 
 template '/etc/nginx/conf.d/default.conf' do
   source 'default.conf.erb'
-  notifies :restart, 'service[nginx]', :immediately
+  notifies :reload, 'service[nginx]', :immediately
 end
